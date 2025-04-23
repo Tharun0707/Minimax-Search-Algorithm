@@ -1,6 +1,6 @@
 <h1>ExpNo 5 : Implement Minimax Search Algorithm for a Simple TIC-TAC-TOE game</h1> 
-<h3>Name:           </h3>
-<h3>Register Number/Staff Id:          </h3>
+<h3>Name: Tharun Sridhar          </h3>
+<h3>Register Number: 212223230230          </h3>
 <H3>Aim:</H3>
 <p>
     Implement Minimax Search Algorithm for a Simple TIC-TAC-TOE game
@@ -102,14 +102,32 @@ def minimax(game)
     end
 end
 
-<hr>
-<h2>Sample Input and Output</h2>
+## Program:
+```
+# Populate the scores array, recursing as needed
+game.get_available_moves.each do |move|
+    possible_game = game.get_new_state(move)
+    scores.push minimax(possible_game)
+    moves.push move
+end
 
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/6b668685-8bcc-43c5-b5c2-ddd43f3da84a)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/8ca1b08a-8312-4ef5-89df-e69b7b2c3fa2)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/dc06427a-d4ce-43a1-95bd-9acfaefac323)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/a8a27e2a-6fd4-46a2-afb5-6d27b8556702)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/a2acb6a1-ed8e-42e5-8968-fe805e4b0255)
+# Do the min or the max calculation
+if game.active_turn == @player
+    # This is the max calculation
+    max_score_index = scores.each_with_index.max[1]
+    @choice = moves[max_score_index]
+    return scores[max_score_index]
+else
+    # This is the min calculation
+    min_score_index = scores.each_with_index.min[1]
+    @choice = moves[min_score_index]
+    return scores[min_score_index]
+end
+```
+
+## Output:
+![image](https://github.com/user-attachments/assets/ab8368a6-eda0-43d0-860c-ffcd44690a06)
+
 
 <hr>
 <h2>Result:</h2>
